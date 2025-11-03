@@ -4,7 +4,6 @@ dotenv.config();
 
 export const config = {
 port: Number(process.env.PORT ?? 5173),
-corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:5175',
 logLevel: (process.env.LOG_LEVEL ?? 'info') as 'fatal'|'error'|'warn'|'info'|'debug'|'trace'|'silent',
 roomEmptyTtlSeconds: Number(process.env.ROOM_EMPTY_TTL_SECONDS ?? 60),
 session: {

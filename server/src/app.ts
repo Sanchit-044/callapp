@@ -22,8 +22,10 @@ await initRedis();
 const app = express();
 app.set('trust proxy', 1);
 
+// const corsOrigin = ,
 
-app.use(cors({ origin: config.corsOrigin, credentials: true }));
+
+app.use(cors({ origin: [ 'http://localhost:5175', 'https://callapp-two.vercel.app'], credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(sessionMiddleware);
@@ -38,7 +40,7 @@ const httpServer = createServer(app);
 
 
 const io = new Server<ClientToServerEvents, ServerToClientEvents>(httpServer, {
-cors: { origin: config.corsOrigin, credentials: true },
+cors: { origin: [ 'http://localhost:5175', 'https://callapp-two.vercel.app'], credentials: true },
 });
 
 
